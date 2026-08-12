@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Farah Hotel — Authentic Indian Kitchen</title>
+<meta name="description" content="Farah Hotel serves authentic South Indian food online — crispy dosas, fragrant biryanis and rich curries made fresh daily and delivered in 30–45 minutes.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23E8780A'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='700' fill='white' text-anchor='middle'%3EF%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -304,10 +306,128 @@ footer{background:#100500;color:rgba(255,255,255,.6);padding:48px}
   .reviews-section{padding:32px 24px}
 }
 @media(max-width:600px){
-  .food-grid{grid-template-columns:1fr}
+  /* ── NAV ── */
+  .hero-nav{padding:14px 16px;flex-wrap:wrap;gap:10px}
+  .logo-main{font-size:22px}
+  .logo-arabic{font-size:10px;letter-spacing:3px}
+  .logo-sub{font-size:9px;letter-spacing:1.5px}
+  .nav-right{gap:8px;width:100%;justify-content:flex-end}
+  .nav-btn{padding:9px 12px}
+  .nav-btn .nav-label{display:none}
+  .cart-btn{padding:10px 16px;font-size:13px}
+
+  /* ── HERO ── */
+  .hero-body{padding:22px 16px 0}
+  .hero-text h1{font-size:clamp(28px,8vw,38px)}
+  .hero-text p{font-size:14px;margin-top:12px;max-width:100%}
+  .hero-ctas{flex-direction:column;gap:10px;margin-top:20px}
+  .cta-primary,.cta-secondary{width:100%;text-align:center;padding:15px 20px}
+  .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px 12px;margin-top:24px;padding-top:20px}
+  .stat-num{font-size:22px}
+  .stat-label{font-size:10.5px}
+
+  /* ── STRIP ── */
+  .strip{padding:14px 16px;gap:10px 18px;justify-content:flex-start}
+  .strip-item{font-size:11.5px;flex:1 1 42%}
+  .strip-icon{font-size:15px}
+
+  /* ── OFFERS ── */
+  .offers-section{padding:22px 16px 0}
+  .section-hd h2{font-size:19px}
+  .see-all{font-size:12px}
+  .offer-card{min-width:210px}
+  .offer-card img{height:115px}
+
+  /* ── MAIN LAYOUT ── */
+  .main-wrap{padding:20px 14px 40px;gap:18px}
+
+  /* ── SIDEBAR → HORIZONTAL CHIP BAR ── */
+  .sidebar{gap:12px}
+  .sidebar-card{padding:14px}
+  .sidebar-card h3{font-size:14px;margin-bottom:10px;padding-bottom:8px}
+  #catList{flex-direction:row!important;overflow-x:auto;flex-wrap:nowrap;gap:8px!important;padding-bottom:4px;scrollbar-width:none}
+  #catList::-webkit-scrollbar{display:none}
+  .cat-btn{flex:0 0 auto;width:auto;padding:9px 13px;font-size:13px;white-space:nowrap;border-radius:50px}
+  .cat-btn.active{border-left:none;box-shadow:inset 0 0 0 1.5px var(--saffron)}
+  .cat-emoji{font-size:15px}
+  .cat-count{margin-left:4px}
+
+  /* ── TOOLBAR ── */
+  .toolbar{gap:10px}
+  .search-wrap{min-width:100%}
+  .sort-select{width:100%}
+
+  /* ── MENU HEADER / GRID ── */
+  .menu-hd h2{font-size:22px}
+  .food-grid{grid-template-columns:1fr;gap:16px}
+  .img-wrap{height:175px}
+  .food-body{padding:13px 14px 14px}
+  .food-name{font-size:15.5px}
+  .price-tag{font-size:19px}
+  .add-btn{padding:9px 16px;font-size:12.5px}
+
+  /* ── FOOD DETAIL MODAL ── */
+  .modal-box{width:100%;max-height:100vh;height:100vh;border-radius:0;top:0;left:0;transform:translateY(4%) scale(.98)}
+  .modal-box.open{transform:translateY(0) scale(1)}
+  .modal-img{height:190px}
+  .modal-body{padding:18px 18px 24px}
+  .modal-name{font-size:21px}
+  .modal-desc{font-size:13.5px}
+  .modal-footer{flex-direction:column;align-items:stretch;gap:12px}
+  .modal-add{width:100%;padding:15px}
+
+  /* ── CART PANEL ── */
+  .cart-panel{width:100%;right:-100%}
+  .cart-hd{padding:18px}
+  .cart-hd h2{font-size:20px}
+  .cart-body{padding:12px}
+  .cart-item-img{width:52px;height:52px}
+  .cart-item-name{font-size:13px}
+  .cart-ft{padding:14px}
+  .checkout-btn{padding:15px;font-size:16px}
+
+  /* ── CHECKOUT STEPS ── */
+  .steps-bar{margin-bottom:18px}
+  .step-label{font-size:9.5px}
+  .step-circle{width:24px;height:24px;font-size:11px}
+  .form-section{padding:0 16px 16px}
+  .form-section h3{font-size:17px}
   .form-grid{grid-template-columns:1fr}
   .payment-opts{grid-template-columns:1fr}
+
+  /* ── SUCCESS MODAL ── */
+  .success-box{width:92vw;padding:32px 22px;border-radius:22px}
+  .success-anim{font-size:56px}
+  .success-box h2{font-size:22px}
+  .order-pill{font-size:14px;letter-spacing:1px}
+  .tracking-bar{padding:10px 6px}
+  .track-icon{font-size:18px}
+  .track-step{font-size:9.5px}
+
+  /* ── REVIEWS ── */
+  .reviews-section{padding:26px 16px}
+  .reviews-grid{grid-template-columns:1fr;gap:14px;margin-top:16px}
+  .review-card{padding:16px}
+
+  /* ── FOOTER ── */
+  footer{padding:36px 18px 24px}
+  .footer-grid{grid-template-columns:1fr;gap:28px;margin-bottom:28px;text-align:left}
+  .footer-brand p{max-width:100%}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:16px}
+  .creator-credit{text-align:left}
+
+  /* ── TOAST ── */
+  #toast{bottom:18px;padding:12px 20px;font-size:12.5px;max-width:88vw;white-space:normal}
 }
+
+@media(max-width:380px){
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .stat-num{font-size:19px}
+  .offer-card{min-width:180px}
+  .img-wrap{height:150px}
+  .food-name{font-size:14.5px}
+}
+
 </style>
 </head>
 <body>
@@ -339,8 +459,8 @@ footer{background:#100500;color:rgba(255,255,255,.6);padding:48px}
       <span class="logo-sub">Authentic Indian Kitchen · Est. 2003</span>
     </div>
     <div class="nav-right">
-      <button class="nav-btn" onclick="toggleWishlist()">❤️ Favourites <span id="favCount" style="background:var(--spice);color:white;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:800">0</span></button>
-      <button class="nav-btn" onclick="scrollToReviews()">⭐ Reviews</button>
+      <button class="nav-btn" onclick="toggleWishlist()">❤️ <span class="nav-label">Favourites</span> <span id="favCount" style="background:var(--spice);color:white;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:800">0</span></button>
+      <button class="nav-btn" onclick="scrollToReviews()">⭐ <span class="nav-label">Reviews</span></button>
       <button class="cart-btn" onclick="openCart()">
         🛒 Cart <span class="cart-count" id="cartCount">0</span>
       </button>
@@ -349,7 +469,7 @@ footer{background:#100500;color:rgba(255,255,255,.6);padding:48px}
   <div class="hero-body">
     <div class="hero-text">
       <h1>Taste the Soul<em>of South India</em></h1>
-      <p>Crispy dosas, fragrant biryanis, rich curries — crafted fresh every day with traditional spices and the warmth of a home kitchen. Delivered to your doorstep.</p>
+      <p>Crispy dosas, fragrant biryanis, rich South Indian curries — crafted fresh every day with traditional spices and the warmth of a home kitchen. Bringing the soul of South India to your doorstep.</p>
       <div class="hero-ctas">
         <button class="cta-primary" onclick="document.getElementById('menuAnchor').scrollIntoView({behavior:'smooth'})">🍽️ Order Now</button>
         <button class="cta-secondary" onclick="filterCat('south',document.querySelector('[data-cat=south]'))">Explore South Indian →</button>
@@ -543,19 +663,19 @@ footer{background:#100500;color:rgba(255,255,255,.6);padding:48px}
       </div>
     </div>
     <div class="footer-col">
-      <h4>Menu</h4>
-      <a>South Indian</a><a>Rice & Biryani</a><a>Curries</a><a>Breads</a><a>Snacks</a><a>Sweets</a>
+      <h4>Explore Menu</h4>
+      <a href="#menuAnchor" onclick="goToMenuCategory('south',event)">South Indian</a><a href="#menuAnchor" onclick="goToMenuCategory('rice',event)">Rice & Biryani</a><a href="#menuAnchor" onclick="goToMenuCategory('curry',event)">Curries</a><a href="#menuAnchor" onclick="goToMenuCategory('breads',event)">Breads</a><a href="#menuAnchor" onclick="goToMenuCategory('snacks',event)">Snacks</a><a href="#menuAnchor" onclick="goToMenuCategory('sweets',event)">Sweets</a>
     </div>
     <div class="footer-col">
       <h4>Info</h4>
-      <a>About Us</a><a>Our Story</a><a>Blog</a><a>Careers</a><a>Franchise</a>
+      <a href="#reviewsSection">About Us & Reviews</a><a href="#" onclick="return false;">Our Story</a><a href="#" onclick="return false;">Blog</a><a href="#" onclick="return false;">Careers</a><a href="#" onclick="return false;">Franchise</a>
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
-      <a>📍 No. 12, Main Street, Madurai, TN</a>
-      <a>📞 +91 98765 43210</a>
-      <a>✉️ orders@farahhotel.in</a>
-      <a>⏰ 7 AM – 11 PM Daily</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=No.+12+Main+Street+Madurai+TN" target="_blank" rel="noopener">📍 No. 12, Main Street, Madurai, TN</a>
+      <a href="tel:+919876543210">📞 +91 98765 43210</a>
+      <a href="mailto:orders@farahhotel.in">✉️ orders@farahhotel.in</a>
+      <span>⏰ 7 AM – 11 PM Daily</span>
     </div>
   </div>
   <div class="footer-bottom">
@@ -574,7 +694,7 @@ footer{background:#100500;color:rgba(255,255,255,.6);padding:48px}
   <button class="modal-close" onclick="closeModal()">✕</button>
   <img id="modalImg" src="" alt="" class="modal-img">
   <div class="modal-body">
-    <h2 class="modal-name" id="modalName"></h2>
+    <h2 class="modal-name" id="modalName">Item Details</h2>
     <p class="modal-desc" id="modalDesc"></p>
     <div class="modal-chips" id="modalChips"></div>
     <p class="ingr-title">Key Ingredients</p>
@@ -794,6 +914,13 @@ function filterCat(cat,btn){
 
 function applyFilters(){ renderMenu(); }
 
+function goToMenuCategory(cat,e){
+  if(e) e.preventDefault();
+  const btn=document.querySelector('[data-cat="'+cat+'"]');
+  if(btn) filterCat(cat,btn);
+  document.getElementById('menuAnchor').scrollIntoView({behavior:'smooth'});
+}
+
 // ─── WISHLIST ─────────────────────────────────────────────────────────────────
 function toggleFav(id,e){
   e&&e.stopPropagation();
@@ -817,7 +944,7 @@ function renderWishlist(){
   el.innerHTML=[...favs].map(id=>{
     const it=ITEMS.find(i=>i.id===id);
     return `<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)">
-      <img src="${it.img}" style="width:44px;height:44px;border-radius:8px;object-fit:cover">
+      <img src="${it.img}" alt="${it.name}" style="width:44px;height:44px;border-radius:8px;object-fit:cover">
       <div style="flex:1;min-width:0"><p style="font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${it.name}</p><p style="font-size:12px;color:var(--warm-gray)">₹${it.price}</p></div>
       <button onclick="addToCart(${id},event);toggleWishlist()" style="background:var(--saffron);color:white;border:none;border-radius:20px;padding:5px 12px;font-size:12px;font-weight:700;cursor:pointer">Add</button>
     </div>`;
