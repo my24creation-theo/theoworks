@@ -18,8 +18,9 @@
   --radius:16px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charcoal);min-height:100vh}
+html{scroll-behavior:smooth;width:100%;overflow-x:hidden}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charcoal);min-height:100vh;width:100%;max-width:100vw;overflow-x:hidden}
+img{max-width:100%}
 
 /* ── TOAST ── */
 #toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(80px);background:#1A1A1A;color:white;padding:14px 28px;border-radius:50px;font-size:14px;font-weight:600;z-index:9999;transition:transform .35s cubic-bezier(.34,1.56,.64,1);pointer-events:none;white-space:nowrap;display:flex;align-items:center;gap:10px}
@@ -306,6 +307,24 @@ footer{background:#100500;color:rgba(255,255,255,.6);padding:48px}
   .reviews-section{padding:32px 24px}
 }
 @media(max-width:600px){
+  /* ── OVERFLOW CONTAINMENT (fixes whole-page shrink-to-fit) ──
+     Flex/grid children default to min-width:auto, which can force a
+     container wider than its available space when it holds a
+     horizontally-scrolling row (category chips, offers, promo strip).
+     That, in turn, can make the WHOLE PAGE wider than the screen and
+     trigger the browser's shrink-to-fit zoom. Resetting min-width:0
+     on every container in that chain stops it at the source. */
+  .hero,.hero-nav,.nav-right,.logo,.hero-body,.hero-text,.hero-ctas,
+  .strip,.strip-item,
+  .offers-section,.offers-scroll,.offer-card,
+  .main-wrap,.sidebar,.sidebar-card,#catList,.cat-btn,
+  .food-grid,.food-card,
+  .reviews-section,.reviews-grid,
+  footer,.footer-grid,.footer-col{min-width:0}
+
+  /* ── TICKER ── */
+  .ticker-inner span{margin:0 24px;font-size:12px}
+
   /* ── NAV ── */
   .hero-nav{padding:14px 16px;flex-wrap:wrap;gap:10px}
   .logo-main{font-size:22px}
@@ -355,12 +374,13 @@ footer{background:#100500;color:rgba(255,255,255,.6);padding:48px}
   /* ── TOOLBAR ── */
   .toolbar{gap:10px}
   .search-wrap{min-width:100%}
+  .search-wrap input{font-size:16px}
   .sort-select{width:100%}
 
   /* ── MENU HEADER / GRID ── */
   .menu-hd h2{font-size:22px}
   .food-grid{grid-template-columns:1fr;gap:16px}
-  .img-wrap{height:175px}
+  .img-wrap{height:190px}
   .food-body{padding:13px 14px 14px}
   .food-name{font-size:15.5px}
   .price-tag{font-size:19px}
@@ -369,12 +389,13 @@ footer{background:#100500;color:rgba(255,255,255,.6);padding:48px}
   /* ── FOOD DETAIL MODAL ── */
   .modal-box{width:100%;max-height:100vh;height:100vh;border-radius:0;top:0;left:0;transform:translateY(4%) scale(.98)}
   .modal-box.open{transform:translateY(0) scale(1)}
-  .modal-img{height:190px}
+  .modal-img{height:200px}
   .modal-body{padding:18px 18px 24px}
   .modal-name{font-size:21px}
   .modal-desc{font-size:13.5px}
-  .modal-footer{flex-direction:column;align-items:stretch;gap:12px}
+  .modal-footer{flex-direction:column;align-items:stretch;gap:12px;position:sticky;bottom:0;background:white;margin:0 -18px -24px;padding:14px 18px;box-shadow:0 -6px 20px rgba(0,0,0,.08)}
   .modal-add{width:100%;padding:15px}
+  .modal-body{overscroll-behavior:contain}
 
   /* ── CART PANEL ── */
   .cart-panel{width:100%;right:-100%}
@@ -393,6 +414,7 @@ footer{background:#100500;color:rgba(255,255,255,.6);padding:48px}
   .form-section{padding:0 16px 16px}
   .form-section h3{font-size:17px}
   .form-grid{grid-template-columns:1fr}
+  .fg input,.fg textarea,.fg select{font-size:16px}
   .payment-opts{grid-template-columns:1fr}
 
   /* ── SUCCESS MODAL ── */
@@ -424,8 +446,31 @@ footer{background:#100500;color:rgba(255,255,255,.6);padding:48px}
   .hero-stats{grid-template-columns:1fr 1fr}
   .stat-num{font-size:19px}
   .offer-card{min-width:180px}
-  .img-wrap{height:150px}
   .food-name{font-size:14.5px}
+}
+
+/* ── TOUCH-DEVICE FIXES (phones/tablets, not mouse users) ── */
+@media(hover:none){
+  *{-webkit-tap-highlight-color:transparent}
+
+  /* Prevent hover effects (elevation, scale, glow) from getting stuck after a tap */
+  .food-card:hover{transform:none;box-shadow:var(--shadow);border-color:transparent}
+  .food-card:hover .img-wrap img{transform:none}
+  .add-btn:hover{transform:none;background:var(--saffron)}
+  .fav-btn:hover{transform:none}
+  .cta-primary:hover{transform:none;box-shadow:none}
+  .checkout-btn:hover{transform:none;box-shadow:none}
+  .modal-add:hover{transform:none;box-shadow:none}
+  .success-close:hover{background:var(--saffron)}
+
+  /* Bigger, easier-to-hit tap targets on touch screens */
+  .qty-btn{width:40px;height:40px}
+  .fav-btn{width:38px;height:38px}
+  .modal-close,.cart-close{width:42px;height:42px}
+  .cat-btn{min-height:40px}
+
+  /* Stop background page from rubber-band scrolling behind an open panel */
+  .cart-body,.modal-box,.success-box{overscroll-behavior:contain}
 }
 
 </style>
